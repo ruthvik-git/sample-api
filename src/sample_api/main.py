@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .v1.routes.housing_type_routes import router as housing_type_router
@@ -47,3 +48,6 @@ app.include_router(housing_type_router,
 app.include_router(housing_router,
                    prefix=api_prefix_v1 + '/housing',
                    tags=["Housing"])
+
+def launch():
+    uvicorn.run("src.sample_api.main:app", host="0.0.0.0", port=3000, reload=True)

@@ -40,5 +40,5 @@ jobs:
           --push .
 
     - name: Output Docker Image Tag
-      run: echo "Docker image pushed with tag: $BUILD_ID"
+      run: echo "Docker image pushed with tag ${{ env.BUILD_ID }}"
 

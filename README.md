@@ -38,6 +38,14 @@ The [psycopg2](https://www.psycopg.org) adaptor is used. Note the [installation 
 - The `sample-api` folder is volume mounted, so any changes to the code will be reflected in the container 
 - The API's documentation is available at [http://localhost:3003/docs](http://localhost:3003/docs).
 
+### Building docker image.
+
+- To build docker images for both amd64 and arm64, use docker buildx plugin.
+```
+docker buildx create --use --name sample-api
+docker buildx inspect sample-api --bootstrap
+docker buildx build --platform linux/amd64,linux/arm64 -t sample-api:latest .
+```
 
 ### Unit tests
 
